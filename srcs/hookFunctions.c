@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 18:04:09 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/25 19:47:23 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int		img_pixel_put(t_env *e, int x, int y, int color)
 {
 	unsigned int	new_color;
 	int	i;
+	// t_env *e;
 
+	// e = getEnv();
 	if (x >= WIDTH || y >= HEIGTH || x < 0 || y < 0)
 		return -1;
 	new_color = mlx_get_color_value(e->mlx, color);
@@ -206,7 +208,8 @@ void 	clearImg(t_env *e)
 int 	expose_hook(t_env *e)
 {
 	clearImg(e);
-	drawGradient(e);
+	// drawGradient(e);
+	draw_line_line_mlx2(e, 200, 200, 200, 0);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }
