@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 18:34:55 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/25 23:31:12 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct 		s_env
 	int 	origin_y;
 	int 	perspective;
 	double 	cte;
+	int 	lim;
 	void (*tab[42])();
 }					t_env;
 
@@ -51,8 +52,9 @@ void	initPtrTab(t_env *e);
 t_env	*getEnv();
 int 	keyMap(int keycode);
 int 	img_pixel_put(t_env *e, int x, int y, int color);
-void 	draw_line_mlx(t_env *e, int x1, int y1, int x2, int y2, int z1 ,int z2);
-void 	draw_line_line_mlx2(t_env *e, int x1, int y1, int x2, int y2);
+void 	draw_line_mlx2(t_env *e, int x1, int y1, int x2, int y2, int z1 ,int z2);
+void 	draw_line_mlx(t_env *e, int x1, int y1, int x2, int y2);
+void 	draw_triangle(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
 
 // void 	drawParallele(t_env *e);
 // void 	drawIsometric(t_env *e);

@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 19:47:23 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/25 23:31:00 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	swap_pos(int *x1, int *y1, int *x2, int *y2)
 	*x2 = tmp_x;	
 }
 
-void 	draw_line_mlx(t_env *e, int x1, int y1, int x2, int y2, int z1 ,int z2)
+void 	draw_line_mlx2(t_env *e, int x1, int y1, int x2, int y2, int z1 ,int z2)
 {
 	int		x;
 	int		y;
@@ -208,8 +208,11 @@ void 	clearImg(t_env *e)
 int 	expose_hook(t_env *e)
 {
 	clearImg(e);
-	// drawGradient(e);
-	draw_line_line_mlx2(e, 200, 200, 200, 0);
+	drawGradient(e);
+	// draw_line_mlx(e, 100, 200, 300, 200);
+	// draw_triangle(e, 0, 400, 200, 400);
+	int num_iterations = e->lim;
+	draw_triangle(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }

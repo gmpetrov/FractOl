@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 18:00:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 18:04:02 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/25 23:42:45 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void 	key_p(void)
 	t_env	*e;
 
 	e = getEnv();
-	e->scale += 1;
+	e->scale += 100;
+	// if ((WIDTH * e->scale) %  e->lim == e->lim)
+		e->lim++;
 	expose_hook(e);
 	ft_putstr("P\n");	
 }
