@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 18:00:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 21:08:12 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:24:13 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,13 @@ void 	key_2(void)
 	e->fractal = 2;
 	expose_hook(e);
 	ft_putstr("P\n");	
+}
+
+void 	key_3(void)
+{
+	t_env	*e;
+
+	e = getEnv();
+	e->fractal = 3;
+	expose_hook(e);
 }

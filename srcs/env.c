@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:53:44 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 13:37:19 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:24:01 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	initPtrTab(t_env *e)
 	e->tab[7] = &key_1;
 	e->tab[8] = &key_2;
 	e->tab[9] = &key_i;
+	e->tab[10] = &key_3;
 }
 
 int 	keyMap(int keycode){
@@ -47,6 +48,8 @@ int 	keyMap(int keycode){
 		return 8;
 	else if (105 == keycode)
 		return 9;
+	else if (51 == keycode)
+		return 10;
 	return -1;
 }
 

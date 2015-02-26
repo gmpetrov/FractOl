@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 21:07:10 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:23:16 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,6 @@ int 	keyMap(int keycode);
 int 	img_pixel_put(t_env *e, int x, int y, int color);
 void 	draw_line_mlx2(t_env *e, int x1, int y1, int x2, int y2, int z1 ,int z2);
 void 	draw_line_mlx(t_env *e, int x1, int y1, int x2, int y2);
-// void 	draw_triangle(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
-
-// void 	drawParallele(t_env *e);
-// void 	drawIsometric(t_env *e);
 
 void	drawGradient(t_env *e);
 
@@ -64,8 +60,11 @@ void	drawGradient(t_env *e);
 
 void 	sierpinski(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
 void 	sierpinski_error(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
-// void 	mendelbrot(t_env *e, int x1, int y1, int x2, int y2);
 void 	mendelbrot(t_env *e);
+void 	julia(t_env *e);
+void 	check_set(t_env *e, int col, int row, double x, double y, double c_re, double c_im, int iteration, int max);
+void 	check_julia_set(t_env *e, int col, int row, double x, double y, double c_re, double c_im, int iteration, int max);
+void 	clearImg(t_env *e);
 
 
 /* KEY FUNCTION */
@@ -80,6 +79,7 @@ void 	key_m(void);
 void 	key_i(void);
 void 	key_1(void);
 void 	key_2(void);
+void 	key_3(void);
 
 /* END PROTOTYPES */
 
