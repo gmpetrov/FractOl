@@ -6,11 +6,13 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 22:31:02 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:47:02 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
+
+#include <stdio.h>
 
 int 	key_hook(int keycode, t_env *e)
 {
@@ -22,6 +24,17 @@ int 	key_hook(int keycode, t_env *e)
 	if (keyMap(keycode) != -1)
 		e->tab[keyMap(keycode)]();
 	return (0);
+}
+
+int 	mouse_hook(int button,int x,int y, t_env *e)
+{
+	(void)e;
+	printf("button : %d, x : %d , y : %d\n", button, x, y);
+	e->mousex = (double)x/1000;
+	e->mousey = (double)y/1000;
+	// printf("button : %d, x : %f , y : %f\n", button, e->mousex, e->mousey);
+	expose_hook(e);
+	return 0;
 }
 
 int		img_pixel_put(t_env *e, int x, int y, int color)

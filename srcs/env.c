@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:53:44 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:24:01 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:39:10 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ t_env	*getEnv()
 		e->fractal = 1;
 		e->lim = 9;
 		e->infinity_loop = 0;
+		e->mousex = 0;
+		e->mousey = 0;
 		initPtrTab(e);
 	}
 	return e;

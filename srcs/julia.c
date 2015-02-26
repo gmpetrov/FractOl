@@ -6,11 +6,12 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 22:10:31 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:22:07 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:47:15 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
+#include <stdio.h>
 
 void 	check_julia_set(t_env *e, int col, int row, double x, double y, double c_re, double c_im, int iteration, int max)
 {
@@ -23,8 +24,8 @@ void 	check_julia_set(t_env *e, int col, int row, double x, double y, double c_r
 			img_pixel_put(e,col,row, color[iteration % 50]);
 		return ;
 	}
-	double re = -0.74543;
-	double im = 0.011301;
+	double re = -0.74543 + e->mousex;
+	double im = 0.011301 + e->mousey;
 
 	x = c_re;
 	y = c_im;

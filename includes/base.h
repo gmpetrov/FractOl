@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:23:16 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 23:40:36 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct 		s_env
 	int 	fractal;
 	int 	lim;
 	int 	infinity_loop;
+	double 	mousex;
+	double 	mousey;
 	void (*tab[42])();
 }					t_env;
 
@@ -46,6 +48,7 @@ typedef struct 		s_env
 void 	check_params(t_env *e, int ac, char **av);
 int 	expose_hook(t_env *e);
 int 	key_hook(int keycode, t_env *e);
+int 	mouse_hook(int button,int x,int y, t_env *e);
 // int 	loop_hook(t_env *e);
 void	initPtrTab(t_env *e);
 t_env	*getEnv();
