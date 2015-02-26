@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 19:04:25 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 12:33:19 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 21:10:21 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void 	case1(t_env *e, int x1, int y1, int x2, int y2)
 	while (x < x2)
 	{
 		y = ((dy/(double)dx) * (x - x1)) + y1;
+		// img_pixel_put(e, x, y, 0xeeeeee);
 		img_pixel_put(e, x, y, 0xeeeeee);
+
 		x++;
 	}
 }
@@ -76,6 +78,7 @@ void 	case2(t_env *e, int x1, int y1, int x2, int y2)
 	while (x < x2)
 	{
 		y = ((dy/(double)dx) * (x - x1)) + y1;
+		// img_pixel_put(e, x, y, 0xeeeeee);
 		img_pixel_put(e, x, y, 0xeeeeee);
 		x++;
 	}	
@@ -95,6 +98,7 @@ void 	case3(t_env *e, int x1, int y1, int x2, int y2)
 	}
 	while (y < y2)
 	{
+		// img_pixel_put(e, x1, y, 0xeeeeee);
 		img_pixel_put(e, x1, y, 0xeeeeee);
 		y++;
 	}

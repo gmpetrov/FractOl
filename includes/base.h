@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 13:30:25 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 21:07:10 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	drawGradient(t_env *e);
 
 void 	sierpinski(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
 void 	sierpinski_error(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations);
+// void 	mendelbrot(t_env *e, int x1, int y1, int x2, int y2);
+void 	mendelbrot(t_env *e);
 
 
 /* KEY FUNCTION */

@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 13:45:11 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 21:11:26 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,8 @@ int 	expose_hook(t_env *e)
 	int num_iterations = e->lim;
 	if (e->fractal == 1)
 		sierpinski(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
+	else if (e->fractal == 2)
+		mendelbrot(e);
 	else if (e->fractal == 9)
 		sierpinski_error(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);

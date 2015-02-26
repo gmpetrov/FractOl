@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 09:53:56 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 12:00:14 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 21:11:51 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void 	ft_usage(void)
 	ft_putstr("[USAGE] - ./fractol <arg>\n");
 	ft_putstr("Arguments :\n");
 	ft_putstr("1 : Sierpiński Triangle\n");
+	ft_putstr("2 : Mendelbrot set\n");
 	ft_putstr("9 : Sierpiński Triangle with error\n");
 	exit(0);
 }
@@ -35,6 +36,8 @@ void 	check_params(t_env *e, int ac, char **av)
 	{
 		if (ft_atoi(av[1]) == 1)
 			e->fractal = 1;
+		else if (ft_atoi(av[1]) == 2)
+			e->fractal = 2;
 		else if (ft_atoi(av[1]) == 9)
 			e->fractal = 9;
 		else
