@@ -6,11 +6,11 @@
 #    By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/20 09:56:28 by gmp               #+#    #+#              #
-#    Updated: 2015/02/25 18:02:26 by gmp              ###   ########.fr        #
+#    Updated: 2015/02/26 11:35:31 by gmp              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= base
+NAME	= fractol
 SRCS	= $(shell find srcs -type f -print | grep "\.c")
 OBJS	= $(SRCS:srcs/%.c=.obj/%.o)
 INC		= -I includes -I libft/includes

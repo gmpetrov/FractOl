@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 23:31:00 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 12:07:29 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,7 +212,10 @@ int 	expose_hook(t_env *e)
 	// draw_line_mlx(e, 100, 200, 300, 200);
 	// draw_triangle(e, 0, 400, 200, 400);
 	int num_iterations = e->lim;
-	draw_triangle(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
+	if (e->fractal == 1)
+		sierpinski(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
+	else if (e->fractal == 9)
+		sierpinski_error(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }

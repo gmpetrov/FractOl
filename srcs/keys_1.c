@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 18:00:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 23:42:45 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 12:02:28 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void 	key_p(void)
 	e = getEnv();
 	e->scale += 100;
 	// if ((WIDTH * e->scale) %  e->lim == e->lim)
-		e->lim++;
+		// e->lim++;
 	expose_hook(e);
 	ft_putstr("P\n");	
 }
@@ -41,7 +41,7 @@ void 	key_1(void)
 	t_env	*e;
 
 	e = getEnv();
-	e->perspective = 1;
+	e->fractal = 1;
 	expose_hook(e);
 	ft_putstr("P\n");	
 }
@@ -51,7 +51,7 @@ void 	key_2(void)
 	t_env	*e;
 
 	e = getEnv();
-	e->perspective = 2;
+	e->fractal = 9;
 	expose_hook(e);
 	ft_putstr("P\n");	
 }

@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 09:53:56 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/25 22:54:26 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 12:00:14 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,37 @@ void	key_escape(void)
 	exit(0);
 }
 
-int     main(void){
-	t_env		*e = getEnv();
+void 	ft_usage(void)
+{
+	ft_putstr("[USAGE] - ./fractol <arg>\n");
+	ft_putstr("Arguments :\n");
+	ft_putstr("1 : Sierpiński Triangle\n");
+	ft_putstr("9 : Sierpiński Triangle with error\n");
+	exit(0);
+}
 
+void 	check_params(t_env *e, int ac, char **av)
+{
+	if (ac != 2)
+		ft_usage();
+	if (ft_strlen(av[1]) == 1 && ft_isdigit(av[1][0]))
+	{
+		if (ft_atoi(av[1]) == 1)
+			e->fractal = 1;
+		else if (ft_atoi(av[1]) == 9)
+			e->fractal = 9;
+		else
+			ft_usage();
+	}
+	else
+		ft_usage();
+}
+
+int     main(int ac, char **av){
+	t_env		*e;
+
+	e = getEnv();
+	check_params(e, ac, av);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_key_hook(e->win, key_hook, e);
 	mlx_loop(e->mlx);
