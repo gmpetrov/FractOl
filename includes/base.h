@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 11:52:08 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 13:30:25 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct 		s_env
 	int 	origin_y;
 	int 	fractal;
 	int 	lim;
+	int 	infinity_loop;
 	void (*tab[42])();
 }					t_env;
 
@@ -74,6 +75,7 @@ void 	key_arrow_right(void);
 void 	key_arrow_left(void);
 void 	key_p(void);
 void 	key_m(void);
+void 	key_i(void);
 void 	key_1(void);
 void 	key_2(void);
 

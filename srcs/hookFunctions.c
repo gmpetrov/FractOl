@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:47:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 12:07:29 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 13:45:11 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,5 +217,7 @@ int 	expose_hook(t_env *e)
 	else if (e->fractal == 9)
 		sierpinski_error(e, 200 - e->scale, 400, WIDTH - 200 + e->scale, 400, 0, num_iterations);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
+	// if (e->infinity_loop == 0)
+	key_p();
 	return (0);
 }

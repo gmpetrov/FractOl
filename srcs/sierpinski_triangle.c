@@ -6,7 +6,7 @@
 /*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 21:25:17 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 12:05:57 by gmp              ###   ########.fr       */
+/*   Updated: 2015/02/26 12:33:03 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void 	sierpinski(t_env *e, int x1, int y1, int x2, int y2, int orientation, int 
 	h = sqrt((l * l) - (x3 * x3));
 	y3 = (orientation == 0 ? y1 - h : y1 + h);
 	x3 = x1 + x3;
-	printf("C( %d, %d )\n", x3, y3);
+	// printf("C( %d, %d )\n", x3, y3);
 	draw_line_mlx(e, x2, y2, x1, y1);
 	draw_line_mlx(e, x3, y3, x2, y2);
 	draw_line_mlx(e, x3, y3, x1, y1);
