@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 22:10:31 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:47:15 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/11 16:55:52 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void 	check_julia_set(t_env *e, int col, int row, double x, double y, double c_r
 	{
 		int color[] = { 0x006699, 0xCC99FF, 0xFF99CC, 0xFF9999, 0xFFFF99};
 		if (iteration >= max)
-			img_pixel_put(e,col,row, 0xeeeeee);
+			img_pixel_put(col,row, 0xeeeeee);
 		else
-			img_pixel_put(e,col,row, color[iteration % 50]);
+			img_pixel_put(col,row, color[iteration % 50]);
 		return ;
 	}
 	double re = -0.74543 + e->mousex;

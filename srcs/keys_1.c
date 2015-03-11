@@ -3,39 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   keys_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 18:00:30 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:38:25 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/11 19:16:01 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-
-void 	key_p(void)
-{
-	t_env	*e;
-
-	e = getEnv();
-	if (e->scale >= 1000)
-		e->scale = 400;
-	e->scale += 10;
-	// ft_putstr("scale = ");
-	// ft_putnbr(e->scale);
-	// ft_putstr("\n");
-
-	// if ((WIDTH * e->scale) %  e->lim == e->lim)
-		// e->lim++;
-	expose_hook(e);
-	ft_putstr("P\n");	
-}
 
 void 	key_i(void)
 {
 	t_env 	*e;
 
 	ft_putstr("YOLO\n");
-	e = getEnv();
+	e = get_env();
 	if (e->infinity_loop == 0)
 		e->infinity_loop = 1;
 	else
@@ -46,7 +28,7 @@ void 	key_m(void)
 {
 	t_env	*e;
 
-	e = getEnv();
+	e = get_env();
 	if (e->scale == 0)
 		return ;
 	e->scale -= 100;
@@ -58,7 +40,7 @@ void 	key_1(void)
 {
 	t_env	*e;
 
-	e = getEnv();
+	e = get_env();
 	e->fractal = 1;
 	expose_hook(e);
 	ft_putstr("P\n");	
@@ -68,7 +50,7 @@ void 	key_2(void)
 {
 	t_env	*e;
 
-	e = getEnv();
+	e = get_env();
 	e->fractal = 2;
 	expose_hook(e);
 	ft_putstr("P\n");	
@@ -78,7 +60,7 @@ void 	key_3(void)
 {
 	t_env	*e;
 
-	e = getEnv();
+	e = get_env();
 	e->fractal = 3;
 	expose_hook(e);
 }

@@ -1,53 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys_2.c                                           :+:      :+:    :+:   */
+/*   key_p.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/25 18:04:20 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/11 16:45:46 by gpetrov          ###   ########.fr       */
+/*   Created: 2015/03/11 19:15:50 by gpetrov           #+#    #+#             */
+/*   Updated: 2015/03/11 19:15:57 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void 	key_arrow_up(void)
+void 	key_p(void)
 {
 	t_env	*e;
 
 	e = get_env();
-	e->origin_y -= 10;
+	if (e->scale >= 1000)
+		e->scale = 400;
+	e->scale += 10;
+	// ft_putstr("scale = ");
+	// ft_putnbr(e->scale);
+	// ft_putstr("\n");
+
+	// if ((WIDTH * e->scale) %  e->lim == e->lim)
+		// e->lim++;
 	expose_hook(e);
-	ft_putstr("UP\n");
-}
-
-void 	key_arrow_down(void)
-{
-	t_env	*e;
-
-	e = get_env();
-	e->origin_y += 10;
-	expose_hook(e);
-	ft_putstr("DOWN\n");
-}
-
-void 	key_arrow_right(void)
-{
-	t_env	*e;
-
-	e = get_env();
-	e->origin_x += 10;
-	expose_hook(e);
-	ft_putstr("RIGHT\n");	
-}
-
-void 	key_arrow_left(void)
-{
-	t_env	*e;
-
-	e = get_env();
-	e->origin_x -= 10;
-	expose_hook(e);
-	ft_putstr("LEFT\n");	
+	ft_putstr("P\n");	
 }

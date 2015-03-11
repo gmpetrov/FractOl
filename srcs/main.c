@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 09:53:56 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 23:34:11 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/11 16:46:11 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void 	check_params(t_env *e, int ac, char **av)
 int     main(int ac, char **av){
 	t_env		*e;
 
-	e = getEnv();
+	e = get_env();
 	check_params(e, ac, av);
 	mlx_expose_hook(e->win, expose_hook, e);
 	mlx_key_hook(e->win, key_hook, e);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mendelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 13:54:47 by gmp               #+#    #+#             */
-/*   Updated: 2015/02/26 22:26:13 by gmp              ###   ########.fr       */
+/*   Updated: 2015/03/11 16:56:07 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void 	check_set(t_env *e, int col, int row, double x, double y, double c_re, dou
 {
 
 	if (iteration >= max){
-		img_pixel_put(e,col,row, 0xffffff);
+		img_pixel_put(col, row, 0xffffff);
 		return;
 	}
 
 	if(x*x+y*y > 4){
 		int color[] = { 0x006699, 0xCC99FF, 0xFF99CC, 0xFF9999, 0xFFFF99};
-		img_pixel_put(e,col,row, color[iteration % 10]);
+		img_pixel_put(col, row, color[iteration % 10]);
 		return;
 	}
 
