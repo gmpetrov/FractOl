@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 13:56:05 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 16:05:28 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define WIDTH 800
 # define HEIGTH 600
 # define MAX_ITER_JULIA 50
+# define MAX_ITER_MEDELBROT 100
 # include "libft.h"
 # include <mlx.h>
 # include <math.h>
@@ -40,10 +41,10 @@ typedef	struct	s_point
 
 typedef	struct	s_dpnt
 {
+	int			col;
+	int			row;
 	double		x;
 	double		y;
-	double		col;
-	double		row;
 	double		c_re;
 	double		c_im;
 }				t_dpnt;
@@ -94,8 +95,7 @@ void			sierpinski_error(t_env *e, int x1, int y1, int x2, \
 	int y2, int orientation, int num_iterations);
 void			mendelbrot(t_env *e);
 void			julia(t_env *e);
-void			check_set(t_env *e, int col, int row, double x, double y, \
-	double c_re, double c_im, int iteration, int max);
+void			check_set(t_dpnt point, double x, double y, int iteration);
 void			check_julia_set(t_env *e, t_dpnt point, int iteration);
 void			clear_img(void);
 
