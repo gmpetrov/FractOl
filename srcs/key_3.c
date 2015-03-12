@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_pos.c                                         :+:      :+:    :+:   */
+/*   key_3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/11 18:21:49 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/03/12 13:24:33 by gpetrov          ###   ########.fr       */
+/*   Created: 2015/03/12 12:56:35 by gpetrov           #+#    #+#             */
+/*   Updated: 2015/03/12 13:14:27 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void		swap_pos(int *x1, int *y1, int *x2, int *y2)
+void		key_3(void)
 {
-	int		tmp_x;
-	int		tmp_y;
+	t_env	*e;
 
-	tmp_x = *x2;
-	tmp_y = *y2;
-	*x1 = *x2;
-	*y1 = *y2;
-	*y2 = tmp_y;
-	*x2 = tmp_x;
+	e = get_env();
+	e->fractal = 3;
+	expose_hook(e);
 }

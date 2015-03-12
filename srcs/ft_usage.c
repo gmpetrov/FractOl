@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_pos.c                                         :+:      :+:    :+:   */
+/*   ft_usage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/03/11 18:21:49 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/03/12 13:24:33 by gpetrov          ###   ########.fr       */
+/*   Created: 2015/03/12 13:20:01 by gpetrov           #+#    #+#             */
+/*   Updated: 2015/03/12 13:27:20 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-void		swap_pos(int *x1, int *y1, int *x2, int *y2)
+void	ft_usage(void)
 {
-	int		tmp_x;
-	int		tmp_y;
-
-	tmp_x = *x2;
-	tmp_y = *y2;
-	*x1 = *x2;
-	*y1 = *y2;
-	*y2 = tmp_y;
-	*x2 = tmp_x;
+	ft_putstr("[USAGE] - ./fractol <arg>\n");
+	ft_putstr("Arguments :\n");
+	ft_putstr("1 : Sierpinski Triangle\n");
+	ft_putstr("2 : Mendelbrot set\n");
+	ft_putstr("3 : Mendelbrot set\n");
+	ft_putstr("9 : Sierpinski Triangle with error\n");
+	exit(0);
 }

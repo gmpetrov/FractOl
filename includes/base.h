@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/11 18:30:16 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 13:21:21 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		key_map(int keycode);
 int		img_pixel_put(int x, int y, int color);
 void	draw_line_mlx(int x1, int y1, int x2, int y2);
 void	draw_gradient(void);
+void	ft_usage(void);
 
 /*
 **	FRACTALS
