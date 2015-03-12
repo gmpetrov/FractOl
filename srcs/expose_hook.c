@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/11 18:19:04 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/03/12 16:41:50 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 17:14:04 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int			expose_hook(t_env *e)
 	a.y = 400;
 	b.x = WIDTH - 200 + e->scale;
 	b.y = 400;
-
 	clear_img();
 	draw_gradient();
 	num_iterations = e->lim;
@@ -33,9 +32,6 @@ int			expose_hook(t_env *e)
 		mendelbrot(e);
 	else if (e->fractal == 3)
 		julia(e);
-	else if (e->fractal == 9)
-		sierpinski_error(200 - e->scale, 400, \
-			WIDTH - 200 + e->scale, 400, 0, num_iterations);
 	mlx_put_image_to_window(e->mlx, e->win, e->img, 0, 0);
 	return (0);
 }

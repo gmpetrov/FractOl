@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/12 13:20:01 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/03/12 13:27:20 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 17:14:09 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,5 @@ void	ft_usage(void)
 	ft_putstr("1 : Sierpinski Triangle\n");
 	ft_putstr("2 : Mendelbrot set\n");
 	ft_putstr("3 : Mendelbrot set\n");
-	ft_putstr("9 : Sierpinski Triangle with error\n");
 	exit(0);
 }

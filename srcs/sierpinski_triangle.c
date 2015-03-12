@@ -6,13 +6,14 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 21:25:17 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 17:09:27 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 17:11:50 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 
-static void	sierpinski_norme(t_point *point, t_point *point2, t_point a, t_point b)
+static void	sierpinski_norme(t_point *point, t_point *point2, \
+	t_point a, t_point b)
 {
 	point->x = a.x;
 	point->y = a.y;
@@ -20,7 +21,8 @@ static void	sierpinski_norme(t_point *point, t_point *point2, t_point a, t_point
 	point2->y = b.y;
 }
 
-static void	sierpinski_norme2(t_point point, t_point point2, t_point point3)
+static void	sierpinski_norme2(t_point point, \
+	t_point point2, t_point point3)
 {
 	draw_line_mlx(point2.x, point2.y, point.x, point.y);
 	draw_line_mlx(point3.x, point3.y, point2.x, point2.y);
@@ -39,7 +41,8 @@ static void	sierpinski_norme4(t_point *point3, int l, int *h)
 	*h = sqrt((l * l) - (point3->x * point3->x));
 }
 
-void		sierpinski(t_point a, t_point b, int orientation, int num_iterations)
+void		sierpinski(t_point a, t_point b, \
+	int orientation, int num_iterations)
 {
 	int		l;
 	int		h;
@@ -49,7 +52,7 @@ void		sierpinski(t_point a, t_point b, int orientation, int num_iterations)
 
 	sierpinski_norme(&point, &point2, a, b);
 	if (num_iterations == 0)
-		return;
+		return ;
 	if (point.y != point2.y)
 		return ;
 	l = abs(point2.x - point.x);
