@@ -6,57 +6,66 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 22:10:31 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 12:49:07 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 14:20:15 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
 #include <stdio.h>
 
-void 	check_julia_set(t_env *e, int col, int row, double x, double y, double c_re, double c_im, int iteration, int max)
+static void			tab_color(int tab[5])
 {
-	if (c_re*c_re + c_im*c_im > 4 || iteration >= max)
-	{
-		int color[] = { 0x006699, 0xCC99FF, 0xFF99CC, 0xFF9999, 0xFFFF99};
-		if (iteration >= max)
-			img_pixel_put(col,row, 0xeeeeee);
-		else
-			img_pixel_put(col,row, color[iteration % 50]);
-		return ;
-	}
-	double re = -0.74543 + e->mousex;
-	double im = 0.011301 + e->mousey;
-
-	x = c_re;
-	y = c_im;
-	c_re = x*x - y*y + re;
-	c_im = 2*x*y + im;
-	check_julia_set(e, col, row, x, y, c_re, c_im, iteration + 1, max);
+	tab[0] = 0x006699;
+	tab[1] = 0x006699;
+	tab[2] = 0xCC99FF;
+	tab[3] = 0xFF99CC;
+	tab[4] = 0xFF9999;
 }
 
-void 	julia(t_env *e)
+void				check_julia_set(t_env *e, t_dpnt point, int iteration)
 {
-	int 	row;
-	int 	col;
-	double 	x;
-	double 	y;
-	double	c_re;
-	double 	c_im;
+	double			re;
+	double			im;
+	int				color[5];
 
-	col = 0;
-	row = 0;
-	while (row < HEIGTH)
+	if (point.c_re * point.c_re + point.c_im * \
+		point.c_im > 4 || iteration >= MAX_ITER_JULIA)
 	{
-		while (col < WIDTH)
+		tab_color(color);
+		if (iteration >= MAX_ITER_JULIA)
+			img_pixel_put(point.col, point.row, 0xeeeeee);
+		else
+			img_pixel_put(point.col, point.row, color[iteration % 50]);
+		return ;
+	}
+	re = -0.74543 + e->mousex;
+	im = 0.011301 + e->mousey;
+	point.x = point.c_re;
+	point.y = point.c_im;
+	point.c_re = point.x * point.x - point.y * point.y + re;
+	point.c_im = 2 * point.x * point.y + im;
+	check_julia_set(e, point, iteration + 1);
+}
+
+void				julia(t_env *e)
+{
+	t_dpnt	point;
+
+	point.col = 0;
+	point.row = 0;
+	while (point.row < HEIGTH)
+	{
+		while (point.col < WIDTH)
 		{
-		    c_re = (col - (WIDTH + e->scale)/2.0) * (4) / (WIDTH + e->scale);
-		    c_im = (row - HEIGTH/2.0) * 4 / (WIDTH + e->scale);
-			x = 0;
-			y = 0;
-			check_julia_set(e, col, row, x, y, c_re, c_im, 0, 50);
-			col++;
+			point.c_re = (point.col - (WIDTH + \
+				e->scale) / 2.0) * (4) / (WIDTH + e->scale);
+			point.c_im = (point.row - HEIGTH / 2.0) * 4 / (WIDTH + e->scale);
+			point.x = 0;
+			point.y = 0;
+			check_julia_set(e, point, 0);
+			point.col++;
 		}
-		col = 0;
-		row++;
+		point.col = 0;
+		point.row++;
 	}
 }
