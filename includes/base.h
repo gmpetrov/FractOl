@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 16:05:28 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 16:40:39 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define HEIGTH 600
 # define MAX_ITER_JULIA 50
 # define MAX_ITER_MEDELBROT 100
+# define MAX_ITER_SIERPINSKI 9
 # include "libft.h"
 # include <mlx.h>
 # include <math.h>
@@ -89,9 +90,9 @@ void			ft_usage(void);
 **	FRACTALS
 */
 
-void			sierpinski(t_env *e, int x1, int y1, int x2, int y2, \
+void			sierpinski(t_point a, t_point b, \
 	int orientation, int num_iterations);
-void			sierpinski_error(t_env *e, int x1, int y1, int x2, \
+void			sierpinski_error(int x1, int y1, int x2, \
 	int y2, int orientation, int num_iterations);
 void			mendelbrot(t_env *e);
 void			julia(t_env *e);

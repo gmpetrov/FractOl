@@ -6,66 +6,64 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/25 21:25:17 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/11 16:54:34 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/12 17:09:27 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "base.h"
-#include <stdio.h>
 
-
-void 	sierpinski(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations)
+static void	sierpinski_norme(t_point *point, t_point *point2, t_point a, t_point b)
 {
-	int	l;
-	int h;
-	int x3;
-	int y3;
-
-	if(num_iterations == 0)
-		return;
-	if (y1 != y2)
-		return ;
-	l = abs(x2 - x1);
-	// if (l < 20)
-	// 	return ;
-	x3 = l / 2;
-	h = sqrt((l * l) - (x3 * x3));
-	y3 = (orientation == 0 ? y1 - h : y1 + h);
-	x3 = x1 + x3;
-	// printf("C( %d, %d )\n", x3, y3);
-	draw_line_mlx(x2, y2, x1, y1);
-	draw_line_mlx(x3, y3, x2, y2);
-	draw_line_mlx(x3, y3, x1, y1);
-
-	sierpinski(e, x1, y1, (l / 2) + x1, y2, 0, num_iterations-1);
-	sierpinski(e, x1 + (l / 2), y1, x2, y1, 0, num_iterations-1);
-	sierpinski(e, x1 + (l / 4), y1 - (h/2), x2 - (l / 4), y1 - (h/2), 0, num_iterations-1);
+	point->x = a.x;
+	point->y = a.y;
+	point2->x = b.x;
+	point2->y = b.y;
 }
 
-
-void 	sierpinski_error(t_env *e, int x1, int y1, int x2, int y2, int orientation, int num_iterations)
+static void	sierpinski_norme2(t_point point, t_point point2, t_point point3)
 {
-	int	l;
-	int h;
-	int x3;
-	int y3;
+	draw_line_mlx(point2.x, point2.y, point.x, point.y);
+	draw_line_mlx(point3.x, point3.y, point2.x, point2.y);
+	draw_line_mlx(point3.x, point3.y, point.x, point.y);
+}
 
-	if(num_iterations == 0)
-		return;;
-	if (y1 != y2)
+static void	sierpinski_norme3(t_point *a, t_point point, int l, int h)
+{
+	a->x = point.x + (l / 4);
+	a->y = point.y - (h / 2);
+}
+
+static void	sierpinski_norme4(t_point *point3, int l, int *h)
+{
+	point3->x = l / 2;
+	*h = sqrt((l * l) - (point3->x * point3->x));
+}
+
+void		sierpinski(t_point a, t_point b, int orientation, int num_iterations)
+{
+	int		l;
+	int		h;
+	t_point point;
+	t_point	point2;
+	t_point	point3;
+
+	sierpinski_norme(&point, &point2, a, b);
+	if (num_iterations == 0)
+		return;
+	if (point.y != point2.y)
 		return ;
-	l = abs(x2 - x1);
-	x3 = l / 2;
-	h = sqrt((l * l) - (x3 * x3));
-	y3 = (orientation == 0 ? y1 - h : y1 + h);
-	x3 = x1 + x3;
-	printf("C( %d, %d )\n", x3, y3);
-	draw_line_mlx(x2, y2, x1, y1);
-	draw_line_mlx(x3, y3, x2, y2);
-	draw_line_mlx(x3, y3, x1, y1);
-	sierpinski_error(e, (x1 + (l/4)), y3 + (h/2), (x1 + (l - (l/4))), y3 + (h/2), 1, num_iterations-1);
-
-	sierpinski_error(e, x1, y1, (l / 2) + x1, y2, 0, num_iterations-1);
-	sierpinski_error(e, x1 + (l / 2), y1, x2, y1, 0, num_iterations-1);
-	sierpinski_error(e, x1 + (l / 4), y1 - (h/2), x2 - (l / 4), y1 - (h/2), 0, num_iterations-1);
+	l = abs(point2.x - point.x);
+	sierpinski_norme4(&point3, l, &h);
+	point3.y = (orientation == 0 ? point.y - h : point.y + h);
+	point3.x = point.x + point3.x;
+	sierpinski_norme2(point, point2, point3);
+	b.x = (l / 2) + point.x;
+	sierpinski(a, b, 0, num_iterations - 1);
+	a.x = point.x + (l / 2);
+	b.x = point2.x;
+	sierpinski(a, b, 0, num_iterations - 1);
+	sierpinski_norme3(&a, point, l, h);
+	b.x = point2.x - (l / 4);
+	b.y = point.y - (h / 2);
+	sierpinski(a, b, 0, num_iterations - 1);
 }
