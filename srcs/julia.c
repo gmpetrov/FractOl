@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/26 22:10:31 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 14:20:15 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/14 14:51:27 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void				check_julia_set(t_env *e, t_dpnt point, int iteration)
 			img_pixel_put(point.col, point.row, color[iteration % 50]);
 		return ;
 	}
-	re = -0.74543 + e->mousex;
-	im = 0.011301 + e->mousey;
+	re = -0.74543 + (e->mousex / 1000);
+	im = 0.011301 + (e->mousey / 1000);
 	point.x = point.c_re;
 	point.y = point.c_im;
 	point.c_re = point.x * point.x - point.y * point.y + re;

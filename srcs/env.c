@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 12:53:44 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/11 18:18:21 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/14 15:03:26 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ t_env	*get_env(void)
 		e->infinity_loop = 0;
 		e->mousex = 0;
 		e->mousey = 0;
+		e->mouse_x = 500;
+		e->mouse_y = HEIGTH / 2.0;
 		init_ptr_tab(e);
 	}
 	return (e);
