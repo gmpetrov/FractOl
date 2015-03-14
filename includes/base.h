@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   base.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gmp <gmp@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/20 10:28:21 by gmp               #+#    #+#             */
-/*   Updated: 2015/03/12 16:40:39 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/03/14 11:48:02 by gmp              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define MAX_ITER_MEDELBROT 100
 # define MAX_ITER_SIERPINSKI 9
 # include "libft.h"
+# include </usr/X11/include/X11/X.h>
 # include <mlx.h>
 # include <math.h>
 # include <fcntl.h>
@@ -85,6 +86,7 @@ int				img_pixel_put(int x, int y, int color);
 void			draw_line_mlx(int x1, int y1, int x2, int y2);
 void			draw_gradient(void);
 void			ft_usage(void);
+int				mouse_motion(int x, int y, t_env *e);
 
 /*
 **	FRACTALS
